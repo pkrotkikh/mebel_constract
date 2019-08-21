@@ -1,0 +1,45 @@
+@font-face {
+	font-family: 'ERASBD';
+	src: url('../fonts/eras/ERASBD.TTF');
+	
+}
+@font-face {
+	font-family: 'ERASDEMI';
+	src: url('../fonts/eras/ERASDEMI.TTF');
+	
+}
+@font-face {
+	font-family: 'ERASLGHT';
+	src: url('../fonts/eras/ERASLGHT.TTF');
+	
+}
+@font-face {
+	font-family: 'ERASMD';
+	src: url('../fonts/eras/ERASMD.TTF');
+	
+}
+@font-face {
+	font-family: 'quant';
+	src: url('../fonts/eras/quantantiquac_[allfont.ru].ttf');
+	
+}
+@font-face {
+	font-family: 'quant_bold';
+	src: url('../fonts/eras/quantantiquac-bold_[allfont.ru]_0.ttf');
+	
+}
+@font-face {
+	font-family: 'quant_italic';
+	src: url('../fonts/eras/quantantiquac-italic_[allfont.ru].ttf');
+	
+}
+@font-face {
+	font-family: 'fs';
+	src: url('../fonts/eras/7449.ttf');
+	
+}
+@font-face {
+	font-family: 'sc';
+	src: url('../fonts/eras/7451.ttf');
+	
+}
