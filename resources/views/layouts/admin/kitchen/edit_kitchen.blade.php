@@ -451,7 +451,7 @@
         </div>
     </div>
 
-    <div class="module-width-height-modal">
+    <div class="module-width-height-modal modal">
         <div class="module-width-height-modal-body">
 
             <input class="module-id" type="hidden" value="">
@@ -635,8 +635,6 @@
             var kitchenModuleType = 0;
             var kitchenModule = 0;
 
-            var kitchenModuleHeghts = 0;
-            var kitchenModuleWidths = 0;
 
             $('.add_click_kitchen_color').click(function (event) {
                 event.preventDefault();
@@ -743,10 +741,11 @@
             $('.module-width-height-modal').on('click', '.add_click_kitchen_module_heights', function (event) {
                 event.preventDefault();
                 var inputToAppendHeights = '';
-                inputToAppendHeights += '<div class="module_height_item">';
-                    inputToAppendHeights += '<span>'+kitchenModuleHeghts+'</span>';
+                inputToAppendHeights += '<div class="module_height_item input-group">';
                     inputToAppendHeights += '<input type="text" name="module_heights_new[]" value="">';
-                    inputToAppendHeights += '<button class="btn btn-danger btn-sm kitchen-module-heights-new-delete">Delete</button>';
+                    inputToAppendHeights += ' <div class="input-group-append">';
+                        inputToAppendHeights += '<button class="btn btn-danger btn-sm kitchen-module-heights-new-delete">Delete</button>';
+                    inputToAppendHeights += ' </div>';
                 inputToAppendHeights += '</div>';
 
 
@@ -756,10 +755,11 @@
             $('.module-width-height-modal').on('click', '.add_click_kitchen_module_widths', function (event) {
                 event.preventDefault();
                 var inputToAppendWidths = '';
-                inputToAppendWidths += '<div class="module_width_item">';
-                    inputToAppendWidths += '<span>'+kitchenModuleWidths+'</span>';
+                inputToAppendWidths += '<div class="module_width_item input-group">';
                     inputToAppendWidths += '<input type="text" name="module_widths_new[]" value="">';
-                    inputToAppendWidths += '<button class="btn btn-danger btn-sm kitchen-module-widths-new-delete">Delete</button>';
+                    inputToAppendWidths += ' <div class="input-group-append">';
+                        inputToAppendWidths += '<button class="btn btn-danger btn-sm kitchen-module-widths-new-delete">Delete</button>';
+                    inputToAppendWidths += ' </div>';
                 inputToAppendWidths += '</div>';
 
 
@@ -812,21 +812,23 @@
                         var inputToAppendHeights = '';
                         var inputToAppendWidths = '';
 
-                        var addHeightsButton = '<button class="badge badge-success add_click_kitchen_module_heights">Добавить</button>';
-                        var addWidthsButton = '<button class="badge badge-success add_click_kitchen_module_widths">Добавить</button>';
+                        var addHeightsButton = '<button class="btn btn-success add_click_kitchen_module_heights">Добавить</button>';
+                        var addWidthsButton = '<button class="btn btn-success add_click_kitchen_module_widths">Добавить</button>';
 
                         $(response.heights).each(function (index,elem) {
-                            inputToAppendHeights += '<div class="module_height_item">';
-                                inputToAppendHeights += '<span>'+index+'</span>';
+                            inputToAppendHeights += '<div class="module_height_item input-group">';
                                 inputToAppendHeights += '<input type="text" name="module_heights[]" data-id="' + elem.id + '" value="' + elem.value + '">';
-                                inputToAppendHeights += '<button class="btn btn-danger btn-sm kitchen-module-heights-delete" data-id="' + elem.id + '" >Delete</button>';
+                                inputToAppendHeights += ' <div class="input-group-append">';
+                                    inputToAppendHeights += '<button class="btn btn-danger btn-sm kitchen-module-heights-delete" data-id="' + elem.id + '" >Delete</button>';
+                                inputToAppendHeights += ' </div>';
                             inputToAppendHeights += '</div>';
                         });
                         $(response.widths).each(function (index,elem) {
-                            inputToAppendWidths += '<div class="module_width_item">';
-                                inputToAppendWidths += '<span>'+index+'</span>';
+                            inputToAppendWidths += '<div class="module_width_item input-group">';
                                 inputToAppendWidths += '<input type="text" name="module_widths[]" data-id="' + elem.id + '" value="' + elem.value + '">';
-                                inputToAppendWidths += '<button class="btn btn-danger btn-sm kitchen-module-widths-delete" data-id="' + elem.id + '" >Delete</button>';
+                                inputToAppendWidths += ' <div class="input-group-append">';
+                                    inputToAppendWidths += '<button class="btn btn-danger btn-sm kitchen-module-widths-delete" data-id="' + elem.id + '" >Delete</button>';
+                                inputToAppendWidths += ' </div>';
                             inputToAppendWidths += '</div>';
                         });
 
@@ -840,7 +842,6 @@
                             let content = '<p style="color:gray;font-size:10px">Для категории модуля "Нижние модули" доступен один вариант высоты</p>';
                             if($(inputToAppendHeights).length < 1){
                                 content += '<div class="module_height_item">';
-                                    content += '<span>1</span>';
                                     content += '<input type="text" name="module_heights_new[]" value="">';
                                 content += '</div>';
                             }

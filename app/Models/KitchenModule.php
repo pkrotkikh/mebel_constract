@@ -25,8 +25,8 @@ class KitchenModule extends Model
         return $this->belongsTo('App\Models\Kitchen_model','kitchen_id');
     }
 
-    public function category(){
-        return $this->belongsTo('App\Models\KitchenModuleCategory','module_category_id');
+    public function getImageNameAttribute(){
+        return '/img/module/'.$this->image;
     }
 
     public function getImageFullnameAttribute(){

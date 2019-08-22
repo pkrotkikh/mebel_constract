@@ -29,6 +29,10 @@ class Color extends Model implements HasMedia
         });
     }
 
+    public function getImageNameAttribute(){
+        return ($this->image) ? '/img/color/'.$this->image : '';
+    }
+
     public function getImageFullnameAttribute(){
         return url('/img/color/'.$this->image);
     }

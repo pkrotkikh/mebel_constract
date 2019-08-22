@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -47,12 +48,32 @@ class Kitchen_model extends Model implements HasMedia
         return $this->hasMany('App\Models\KitchenModuleType','kitchen_model_id');
     }
 
+    public function getImageNameAttribute(){
+        return ($this->image) ? '/img/kitchen/'.$this->image : '';
+    }
+
     public function getImageFullnameAttribute(){
         return url('/img/kitchen/'.$this->image);
     }
 
     public function getImageFullpathAttribute(){
         return public_path('/img/kitchen/').$this->image;
+    }
+
+    public function getKitchenBodyColorAttribute(){
+        return $this->colors()->where('type','=','body_color')->get();
+    }
+
+    public function getKitchenFacadeAttribute(){
+        return $this->colors()->where('type','=','kitchen_facade')->get();
+    }
+
+    public function getTopModulesAttribute(){
+        return $this->types()->where('module_category_id','=',1)->get();
+    }
+
+    public function getBottomModulesAttribute(){
+        return $this->types()->where('module_category_id','=',2)->get();
     }
 
     public function registerMediaCollections()

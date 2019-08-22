@@ -6440,13 +6440,41 @@ input[type='number'] {
   left: 25%;
   top: 20%;
   background-color: white;
+  display: flex;
 }
 
 .module-heights, .module-widths{
-    width:50%;
-    float: left;
+  width:50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.module_height_item{
+  margin: 5px 0;
+}
+
+.module_height_item>input {
+  flex-grow: 1;
+}
+
+.module-heights p:first-of-type, .module-widths p:first-of-type{
+  font-family: Roboto Tahoma sans-serif;
+  font-size: 20px;
+  text-align: center;
 }
 
 img.image-thumb{
   max-width: 128px;
+}
+
+.module_width_item.input-group{
+  margin: 5px 0;
+}
+
+.module_width_item.input-group>input {
+  flex-grow: 1;
+}
+
+.add_click_kitchen_module_heights, .add_click_kitchen_module_widths{
+  padding: 0px 10px;
 }

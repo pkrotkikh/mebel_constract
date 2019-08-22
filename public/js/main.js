@@ -156,35 +156,35 @@ function deleteSlider() {
 }
 $(window).on('load resize', deleteSlider)
 
-$(function ($) {
-  var allAccordions = $('.accordion div.data');
-  var allAccordionItems = $('.accordion .accordion-item');
-  $('.accordion > .accordion-item').click(function () {
-    if ($(this).hasClass('open')) {
-      $(this).removeClass('open');
-      $(this).next().slideUp("slow");
-    }
-    else {
-      allAccordionItems.removeClass('open');
-      $(this).addClass('open');
-      $(this).next().slideDown("slow");
-      return false;
-    }
-  });
+// $(function ($) {
+//   var allAccordions = $('.accordion div.data');
+//   var allAccordionItems = $('.accordion .accordion-item');
+//   $('.accordion > .accordion-item').click(function () {
+//     if ($(this).hasClass('open')) {
+//       $(this).removeClass('open');
+//       $(this).next().slideUp("slow");
+//     }
+//     else {
+//       allAccordionItems.removeClass('open');
+//       $(this).addClass('open');
+//       $(this).next().slideDown("slow");
+//       return false;
+//     }
+//   });
+// });
+
+
+$(".kitchen-slider1").slick({
+  prevArrow: '<i class="fas fa-chevron-left"></i>',
+  nextArrow: '<i class="fas fa-chevron-right"></i>',
+  infinite: false,
+  slidesPerRow: 2,
+  rows: 2,
+  responsive: [
+  ]
 });
 
 
-document.getElementsByClassName('accept-terms')[0].addEventListener('click', function () {
-  let btnToOrder = document.querySelector('.btn-to-order');
-  let inp = document.getElementById('accept-term');
-  if (!inp.checked) {
-    btnToOrder.disabled = false;
-    btnToOrder.classList.add('active');
-  } else {
-    btnToOrder.disabled = true;
-    btnToOrder.classList.remove('active');
-  }
-});
 
 // let acceptTerm = document.getElementById('accept-term')
 // acceptTerm.addEventListener('click', () => {
@@ -204,12 +204,12 @@ $(window).on('scroll', function () {
   let price
   let slider;
   if ($(window).width() > 992) {
-    // slider = $('.kitchen-slider-desctop');
-    // if (this.scrollY > 350) {
-    //   slider.addClass('fixed')
-    // } else {
-    //   slider.removeClass('fixed')
-    // }
+    price = $('.priceForSizeConfig');
+    if (this.scrollY > 350) {
+      price.addClass('fixed')
+    } else {
+      price.removeClass('fixed')
+    }
   } else {
     price = $('.priceForSizeConfig.mobile');
     if (this.scrollY > 300) {
@@ -220,78 +220,7 @@ $(window).on('scroll', function () {
   }
 });
 
-// => BUTTONS 
 
-$(".kitchen-slider1").slick({
-  prevArrow: '<i class="fas fa-chevron-left"></i>',
-  nextArrow: '<i class="fas fa-chevron-right"></i>',
-  infinite: false,
-  slidesPerRow: 2,
-  rows: 2,
-  responsive: [
-  ]
-});
-$('.btn-to-secondStep').click(function () {
-  $('.first-step').css('display', 'none');
-  $('.second-step').css('display', 'block');
-  $('.kitchen-slider1').css('display', 'none');
-  $('.kitchen-sections').css('display', 'block');
-  $('.step1').removeClass('active');
-  $('.step2').addClass('active');
-  $('.hideConfigImg').removeClass('show');
-  $('.checkConfigImage').removeClass('show');
-  // $('.straight').click();
-  $('.straight input').prop('checked', true);
-  $('.kitchen-param.section-A').addClass('active');
-  $('.straight-block').addClass('check');
-  $('#sectionAS').prop('checked', true);
-  $('.btn-to-thirdStep').removeClass('active');
-  $(window).scrollTop(0);
-});
-$('.btn-back-toFirst-step ').click(function () {
-  $('.first-step').css('display', 'block');
-  $('.second-step').css('display', 'none');
-  $('.kitchen-slider1').css('display', 'block');
-  $('.kitchen-sections').css('display', 'none');
-  $('.step2').removeClass('active');
-  $('.step1').addClass('active');
-  $('.hideConfigImg').addClass('show');
-  $('.checkConfigImage').addClass('show');
-});
-$('.btn-to-thirdStep').click(function () {
-  $('.second-step').css('display', 'none');
-  $('.third-step').css('display', 'block');
-  $('.kitchen-sections').css('display', 'none');
-  $('.step2').removeClass('active');
-  $('.step3').addClass('active');
-  $('.checkConfigImage').addClass('show');
-  $('.kitchen-slider-desctop .kitchen-slider1').css('display', 'block');
-  $(window).scrollTop(0);
-});
-$('.btn-back-toSecond-step').click(function () {
-  $('.second-step').css('display', 'block');
-  $('.third-step').css('display', 'none');
-  $('.kitchen-sections').css('display', 'block');
-  $('.step2').removeClass('active');
-  $('.step3').addClass('active');
-  $('.checkConfigImage').removeClass('show');
-  $('.kitchen-slider-desctop .kitchen-slider1').css('display', 'none');
-});
-$('.btn-to-fourthStep').click(function () {
-  $('.third-step').css('display', 'none');
-  $('.fourth-step').css('display', 'block');
-  $('.step3').removeClass('active');
-  $('.step4').addClass('active');
-  $('#configuratorTotalCost').text($('#priceField').attr('data-common-price') + ' грн.')
-  $(window).scrollTop(0);
-});
-$('.btn-back-toThird-step').click(function () {
-  $('.third-step').css('display', 'block');
-  $('.fourth-step').css('display', 'none');
-  $('.step4').removeClass('active');
-  $('.step3').addClass('active');
-});
-// <= BUTTONS
 
 let checkConfigImg = document.querySelector('.checkConfigImage');
 let checkConfigImgMobile = document.querySelector('.checkConfigImage-mobile');
@@ -350,7 +279,7 @@ locationModel.forEach(e => e.addEventListener('click', function () {
 
   $('.kitchen-param.active').each(function () { $(this).removeClass('active') });
   $('.kitchen-location .custom-radio').each(function () { $(this).removeClass('active') });
-
+  $('.forCheckKitchenSection').prop('checked', false);
   if ($(this).hasClass('straight')) {
     $(this).addClass('active');
     $('.section-A').addClass('active');
@@ -358,6 +287,8 @@ locationModel.forEach(e => e.addEventListener('click', function () {
     $('.straight-block .section-A-block').addClass('active');
     $('.corner-block').removeClass('check');
     $('.p-shaped-block').removeClass('check');
+    $('.straight-block .section-A-block .forCheckKitchenSection').prop('checked', true);
+
   };
   if ($(this).hasClass('corner')) {
     $(this).addClass('active');
@@ -367,6 +298,7 @@ locationModel.forEach(e => e.addEventListener('click', function () {
     $('.straight-block').removeClass('check');
     $('.corner-block').addClass('check');
     $('.p-shaped-block').removeClass('check');
+    $('.corner-block .section-A-block .forCheckKitchenSection').prop('checked', true);
   };
   if ($(this).hasClass('p-shaped')) {
     $(this).addClass('active');
@@ -377,9 +309,11 @@ locationModel.forEach(e => e.addEventListener('click', function () {
     $('.straight-block').removeClass('check');
     $('.corner-block').removeClass('check');
     $('.p-shaped-block').addClass('check');
+    $('.p-shaped-block .section-A-block .forCheckKitchenSection').prop('checked', true);
   };
 
-  $('.section-A-block .forCheckKitchenSection').prop('checked', true)
+
+
   removeAllOptionsAfterChangeLocation();
   openNextAccordionItem($(this).parent().parent().parent().next());
 }));
@@ -405,23 +339,12 @@ $('.modules-headline').on('click', function () {
 });
 
 function changeOptions() {
-
   if ($(this).parent().hasClass('kitchen-fasad')) {
     openNextAccordionItem($(this).parent().parent().parent().next());
   };
-
   if ($(this).parent().hasClass('kitchen-corps-color')) {
     $('.btn-to-secondStep').addClass('active');
-  };
-
-  if ($(this).parent().hasClass('kitchen-tableTop-color')) {
-    openNextAccordionItem($(this).parent().parent().parent().next());
   }
-  if ($(this).parent().hasClass('kitchen-base-color')) {
-    openNextAccordionItem($(this).parent().parent().parent().next());
-    $('.btn-to-fourthStep').addClass('active');
-  }
-
 }
 
 function changeDepthConfig(top, bottom) {
@@ -436,6 +359,7 @@ function removeAllConfigurations() {
   removeConfigurations($('.tableTop'));
   removeConfigurations($('.baseColor'));
   removeConfigurations($('.eavesColor'));
+  removeConfigurations($('.third-step .accordion'))
 };
 
 function removeConfigurations(targets) {
@@ -458,25 +382,23 @@ function toggleImagesStick(stick) {
 
 // => CREATE NEW BLOCKS FUNCTION 
 
-
 function createNewBlocks(newConfig) {
   createNewKitchenColorBlocks($('.kitchen-fasad-wrap'), 'kitchen-fasad', newConfig.kitchenFasad, 1);
   createNewKitchenColorBlocks($('.kitchen-corps-color-wrap'), 'kitchen-corps-color', newConfig.bodyColor, 2);
   createNewKitchenModelsBlocks($('.bottom-modules .modules-body'), newConfig.bottomModules);
   createNewKitchenModelsBlocks($('.top-modules .modules-body'), newConfig.topModules);
-  createNewKitchenColorBlocks($('.kitchen-color-onthirdStep-wrap.tableTop'), 'kitchen-tableTop-color', newConfig.tableTopColor, 3);
-  createNewKitchenColorBlocks($('.kitchen-color-onthirdStep-wrap.baseColor'), 'kitchen-base-color', newConfig.baseColor, 4);
-  createNewKitchenColorBlocks($('.kitchen-color-onthirdStep-wrap.eavesColor'), 'kitchen-eaves-color', newConfig.eavesColor, 5);
-  // createNewKitchenModelsBlocks($('.condition-modules .modules-body'), newConfig.conditionModules);
+  createAddEquipFirstBlock($('.third-step .accordion'), newConfig.additionalEquipment);
 
-  Array.from(document.getElementsByClassName('modulesType')).forEach(el => el.addEventListener('click', openAdditionalModules));
+  Array.from(document.getElementsByClassName('kitchen-modulesType')).forEach(el => el.addEventListener('click', openAdditionalModules));
   Array.from(document.getElementsByClassName('size-dropMenu-open')).forEach(el => el.addEventListener('click', openDropMenu));
   Array.from(document.querySelectorAll('.add-module-btn')).forEach(el => el.addEventListener('click', addModuleBlock));
+  Array.from(document.querySelectorAll('modulesType-additionalBlock')).forEach(el => el.addEventListener('click', function (event) {
+    event.stopPropagation();
+  }))
 
 };
 
 function createNewKitchenColorBlocks(target, className, newConfig, labelNumber) {
-  console.log(newConfig)
   for (let i = 0; i < newConfig.length; i++) {
     target.append(
       `<div class="color-block ${className}">
@@ -489,7 +411,6 @@ function createNewKitchenColorBlocks(target, className, newConfig, labelNumber) 
       </div>`
     )
   };
-
 };
 
 function createNewKitchenModelsBlocks(target, newConfig) {
@@ -516,7 +437,6 @@ function createNewKitchenModelsBlocks(target, newConfig) {
 };
 
 function createNewKitchenModelsBlocksAdditionalOptions(target, newConfig) {
-
 
   for (let i = 0; i < newConfig.length; i++) {
 
@@ -596,9 +516,6 @@ function addModuleBlock() {
     regExp = new RegExp('custom-module'),
     customModuleBlockClassName;
 
-
-  // $(this).attr('class').search(regExp) != -1 ? parentBlock = $(this).parent() : parentBlock = $(this).parent().parent().parent().parent().parent().parent().parent();
-
   if ($(this).attr('class').search(regExp) != -1) {
     parentBlock = $(this).parent();
     headline = $(this).parent().find('.custom-module-headline').val();
@@ -640,36 +557,36 @@ function addModuleBlock() {
       let nextTargetBlock;
 
       if (($('#sectionAS').prop('checked') == true || $('#sectionAC').prop('checked') == true || $('#sectionAP').prop('checked') == true) && targetBlock.find('.first-module-block').length < 1) {
-        addCornerBlock(targetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, 'first-corner-block', price);
-        parentModuleBLock.find('.add-module-btn').prop('disabled', true);
-        // !$('.kitchen-location .custom-radio.straight').hasClass('active') ?  parentModuleBLock.find('.add-module-btn').prop('disabled', true) : console.log('asd');
+        addCornerBlock(targetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, `first-corner-block custom-corner${twoBlockCounter}`, price);
+        // parentModuleBLock.find('.add-module-btn').prop('disabled', true);
+        !$('.kitchen-location .custom-radio.straight').hasClass('active') ? parentModuleBLock.find('.add-module-btn').prop('disabled', true) : '';
       } else if (($('#sectionBS').prop('checked') == true || $('#sectionBC').prop('checked') == true || $('#sectionBP').prop('checked') == true) && targetBlock.find('.second-module-block').length < 1) {
-        addCornerBlock(targetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, 'second-corner-block', price);
-        parentModuleBLock.find('.add-module-btn').prop('disabled', true);
-        // !$('.kitchen-location .custom-radio.straight').hasClass('active') ?  parentModuleBLock.find('.add-module-btn').prop('disabled', true) : console.log('asd');
+        addCornerBlock(targetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, `second-corner-block custom-corner${twoBlockCounter}`, price);
+        // parentModuleBLock.find('.add-module-btn').prop('disabled', true);
+        !$('.kitchen-location .custom-radio.straight').hasClass('active') ? parentModuleBLock.find('.add-module-btn').prop('disabled', true) : '';
       };
 
-      // FOr dublickate corner module block
+      // For dublickate corner module block
       if ($('.corner-block').hasClass('check') || $('.p-shaped-block').hasClass('check')) {
         if ($('#sectionAS').prop('checked') == true || $('#sectionAC').prop('checked') == true || $('#sectionAP').prop('checked') == true) {
           if (targetBlock.hasClass('section-top')) {
             nextTargetBlock = targetBlock.parent().next().find('.section-top');
-            addCornerBlock(nextTargetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, 'first-corner-block', price);
+            addCornerBlock(nextTargetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, `first-corner-block custom-corner${twoBlockCounter}`, price);
             nextTargetBlock.prepend(nextTargetBlock.find('.first-corner-block').parent());
             nextTargetBlock.append(nextTargetBlock.find('.second-corner-block').parent());
           } else if (targetBlock.hasClass('section-bottom')) {
             nextTargetBlock = targetBlock.parent().next().find('.section-bottom');
-            addCornerBlock(nextTargetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, 'first-corner-block', price);
+            addCornerBlock(nextTargetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, `first-corner-block custom-corner${twoBlockCounter}`, price);
             nextTargetBlock.prepend(nextTargetBlock.find('.first-corner-block').parent());
             nextTargetBlock.append(nextTargetBlock.find('.second-corner-block').parent());
           };
         } else if ($('#sectionBS').prop('checked') == true || $('#sectionBC').prop('checked') == true || $('#sectionBP').prop('checked') == true) {
           if (targetBlock.hasClass('section-top')) {
             nextTargetBlock = targetBlock.parent().next().find('.section-top');
-            addCornerBlock(nextTargetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, 'second-corner-block', price);
+            addCornerBlock(nextTargetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, `second-corner-block custom-corner${twoBlockCounter}`, price);
           } else if (targetBlock.hasClass('section-bottom')) {
             nextTargetBlock = targetBlock.parent().next().find('.section-bottom');
-            addCornerBlock(nextTargetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, 'second-corner-block', price);
+            addCornerBlock(nextTargetBlock, targetInput, secondTargetInput, headline, description, width, height, depth, `second-corner-block custom-corner${twoBlockCounter}`, price);
           };
         };
       };
@@ -677,7 +594,6 @@ function addModuleBlock() {
     } else if (parentModuleBLock.attr('data-type') == 'twoBlocks' || parentBlock.hasClass('twoBlocks')) {
       // For paste twoBlocks module
       let className;
-
       parentBlock.hasClass('twoBlocks') ? className = `two-blocks-module two-blocks${twoBlockCounter} custom-module-block` : className = `two-blocks-module two-blocks${twoBlockCounter}`
       addTwoBlocksModule(targetBlock, targetInput, prevTargetInput, headline, description, width, height, depth, className, price);
       addTwoBlocksModule(prevTargetBlock, targetInput, prevTargetInput, headline, description, width, height, depth, className, price);
@@ -759,44 +675,6 @@ function changeInputSizeConfig(target, width) {
   target.val(parseInt(target.val()) + parseInt(width.match(/\d+/)[0]) + ' см.');
 };
 
-function removeModuleBlock(target, input, secondInput) {
-  input.val(parseInt(input.val()) - parseInt($(target).parent().find('.section-module-sizes-width').text().match(/\d+/)[0]) + ' см.');
-  // For unlock add module button
-  if ($(target).parent().hasClass('corner-module-block')) {
-    let parentForUnlockAddCornerButton = $('.modulesType-additionalBlock-options');
-    let strForCompare = $(target).parent().find('.section-module-name').text();
-    let regExp = new RegExp(strForCompare, 'g');
-    for (let i = 0; i < parentForUnlockAddCornerButton.length; i++) {
-      if (parentForUnlockAddCornerButton.eq(i).find('.modulesType-add-headline').text().search(regExp) != -1) {
-        parentForUnlockAddCornerButton.eq(i).find('.add-module-btn').prop('disabled', false);
-      }
-    }
-  };
-  if ($(target).parent().hasClass('corner-module-block first-corner-block')) {
-    secondInput.val(parseInt(secondInput.val()) - parseInt($(target).parent().find('.section-module-sizes-width').text().match(/\d+/)[0]) + ' см.');
-    $('.corner-module-block.first-corner-block').parent().remove();
-  } else if ($(target).parent().hasClass('corner-module-block second-corner-block')) {
-    secondInput.val(parseInt(secondInput.val()) - parseInt($(target).parent().find('.section-module-sizes-width').text().match(/\d+/)[0]) + ' см.');
-    $('.corner-module-block.second-corner-block').parent().remove();
-  } else {
-    $(target).parent().parent().remove();
-  }
-  removeCommonPriceFromModule($(target).parent())
-};
-
-function removeTwoBlocksModule(target, input, prevInput) {
-  input.val(parseInt(input.val()) - parseInt($(target).parent().find('.section-module-sizes-width').text().match(/\d+/)[0]) + ' см.');
-  let secondModuleClass;
-  if ($(target).parent().hasClass('two-blocks-module')) {
-    secondModuleClass = $(target).parent().attr('class').match(/two-blocks\d+/)[0]
-    console.log(secondModuleClass)
-    prevInput.val(parseInt(prevInput.val()) - parseInt($(target).parent().find('.section-module-sizes-width').text().match(/\d+/)[0]) + ' см.');
-    $(`.${secondModuleClass}`).parent().remove();
-  }
-  $(target).parent().parent().remove();
-  removeCommonPriceFromModule($(target).parent())
-}
-
 function createModuleBlock(headline, description, width, height, depth, price, className) {
   return `<div class="col-2">
         <div class="section-module ${className} col-12" data-price="${price}">
@@ -840,10 +718,92 @@ function createTwoBlocksModuleBlock(headline, description, width, height, depth,
       </div>
     </div>`
 };
-
-
 // <= FOR ADD MODULE BLOCKS FUNCTIONS 
 
+// => FOR ADD THIRD STEP BLOCKS 
+function createAddEquipFirstBlock(target, newConfig) {
+
+  for (let i = 0; i < newConfig.length; i++) {
+
+    target.append(
+      `<div class="accordion-item">
+        ${newConfig[i].blockName}
+        <div class="accordion-item-rightline"></div>
+      </div>    
+      <div class="data">
+      <p class="text-field-for-edit">${newConfig[i].text}</p>
+      <div class="color2 kitchen-color-onthirdStep-wrap">
+      </div>
+      </div>
+      `
+    )
+    createAddEquipSecondBlock(target.children().last().find('.kitchen-color-onthirdStep-wrap'), newConfig[i].items, i);
+  };
+};
+
+function createAddEquipSecondBlock(target, newConfig, counter) {
+  if (newConfig != undefined) {
+    for (let i = 0; i < newConfig.length; i++) {
+      target.append(
+        `<div class="color-block">
+          <label class="custom-radio">
+            <input name="group${counter}" type="radio">
+            <div></div>
+            <img class="img_color2" src="${newConfig[i].src}" alt="">
+          </label>
+          <p>${newConfig[i].name}</p>
+        </div>`
+      )
+    };
+  }
+};
+// <=  FOR ADD THIRD STEP BLOCKS 
+
+
+// => FOR REMOVE MODULE BLOCKS 
+function removeModuleBlock(target, input, secondInput) {
+  let secondModuleClass;
+  input.val(parseInt(input.val()) - parseInt($(target).parent().find('.section-module-sizes-width').text().match(/\d+/)[0]) + ' см.');
+  // For unlock add module button
+  if ($(target).parent().hasClass('corner-module-block')) {
+    let parentForUnlockAddCornerButton = $('.modulesType-additionalBlock-options');
+    let strForCompare = $(target).parent().find('.section-module-name').text();
+    let regExp = new RegExp(strForCompare, 'g');
+    for (let i = 0; i < parentForUnlockAddCornerButton.length; i++) {
+      if (parentForUnlockAddCornerButton.eq(i).find('.modulesType-add-headline').text().search(regExp) != -1 && $('#sectionCP').prop('checked') != true) {
+        parentForUnlockAddCornerButton.eq(i).find('.add-module-btn').prop('disabled', false);
+      };
+    };
+    secondModuleClass = $(target).parent().attr('class').match(/custom-corner\d+/)[0];
+    secondInput.val(parseInt(secondInput.val()) - parseInt($(target).parent().find('.section-module-sizes-width').text().match(/\d+/)[0]) + ' см.');
+    $(`.${secondModuleClass}`).parent().remove();
+  } else {
+    $(target).parent().parent().remove();
+  };
+
+  if ($('.section-module').length == 0) {
+    $('.btn-to-thirdStep').removeClass('active');
+  }
+  removeCommonPriceFromModule($(target).parent());
+};
+
+function removeTwoBlocksModule(target, input, prevInput) {
+  input.val(parseInt(input.val()) - parseInt($(target).parent().find('.section-module-sizes-width').text().match(/\d+/)[0]) + ' см.');
+  let secondModuleClass;
+  if ($(target).parent().hasClass('two-blocks-module')) {
+    secondModuleClass = $(target).parent().attr('class').match(/two-blocks\d+/)[0];
+    prevInput.val(parseInt(prevInput.val()) - parseInt($(target).parent().find('.section-module-sizes-width').text().match(/\d+/)[0]) + ' см.');
+    $(`.${secondModuleClass}`).parent().remove();
+  } else {
+    $(target).parent().parent().remove();
+  }
+  removeCommonPriceFromModule($(target).parent());
+
+  if ($('.section-module').length == 0) {
+    $('.btn-to-thirdStep').removeClass('active');
+  };
+};
+// <= FOR REMOVE MODULE BLOCKS
 
 // => FOR CHANGE COMMON PRICE 
 
@@ -862,22 +822,11 @@ function removeCommonPriceFromModule(target) {
 
 // <= FOR CHANGE COMMON PRICE 
 
-
-function openAdditionalModules(event) {
-  event = event || window.event;
-  if (event.target.classList.contains('openAdd')) {
-    this.getElementsByClassName('modulesType-additionalBlock')[0].classList.toggle('openAddBlock');
-    event.target.classList.toggle('rotateAdd');
-  }
+function openAdditionalModules() {
+  $(this).parent().find('.modulesType-additionalBlock').toggleClass('openAddBlock');
+  $(this).find('.openAdd').toggleClass('rotateAdd');
 };
-function closeAdditionalBlock() {
-  $('.kitchen-corps-color').parent().removeClass('open');
-  $('.kitchen-corps-color').slideUp('fast');
-  $('.modules-headline').removeClass('showModules');
-  $('.modules-body').slideUp('fast');
-  $('.condition-modules-body').slideUp('fast');
-  $('.openAdd').removeClass('rotateAdd');
-}
+
 function openDropMenu(event) {
   event = event || window.event;
   if (event.target.classList.contains('size-dropMenu-inp')) {
@@ -887,12 +836,31 @@ function openDropMenu(event) {
     this.getElementsByTagName('INPUT')[0].value = event.target.innerHTML;
     this.lastElementChild.classList.remove('openDropMenu');
   }
+};
+
+function closeAdditionalBlock() {
+  $('.kitchen-corps-color').parent().removeClass('open');
+  $('.kitchen-corps-color').slideUp('fast');
+  $('.modules-headline').removeClass('showModules');
+  $('.modules-body').slideUp('fast');
+  $('.condition-modules-body').slideUp('fast');
+  $('.openAdd').removeClass('rotateAdd');
 }
+
 
 $('.section-above-top label').on('click', function () {
   $('.sections').removeClass('active');
   $(this).parent().parent().parent().addClass('active');
+  let buttonBlock = $('.modulesType');
+  if ($(this).parent().find('input').attr('id') === 'sectionCP') {
+    for (let i = 0; i < buttonBlock.length; i++) {
+      if (buttonBlock.eq(i).attr('data-type') === 'corner') {
+        $(buttonBlock.eq(i)).find('.add-module-btn').prop('disabled', true)
+      }
+    }
+  }
 })
+
 $('.add-condition-module-btn').on('click', function () {
   $(this).next().addClass('show')
 })
@@ -916,12 +884,6 @@ $('.create-module-popup select').on('change', function () {
   };
 });
 
-function closeCustomModulePopap() {
-  if ($('.create-module-popup').hasClass('show')) {
-    $('.create-module-popup').removeClass('show')
-    $('.create-module-popup div').find('input').val('');
-  }
-};
 
 function removeAllOptionsAfterChangeLocation() {
   $('.kitchen-param-left input').val(0);
@@ -930,17 +892,132 @@ function removeAllOptionsAfterChangeLocation() {
   $('#priceField').text('0 грн.');
   $('#priceField').attr('data-common-price', 0);
   $('.add-module-btn').prop('disabled', false);
+  $('.btn-to-thirdStep').removeClass('active');
+};
+
+function closeCustomModulePopap() {
+  if ($('.create-module-popup').hasClass('show')) {
+    $('.create-module-popup').removeClass('show')
+    $('.create-module-popup div').find('input').val('');
+  }
 };
 
 $('.individual-kitchen-btn').on('click', () => {
   $('.individual-kitchen-popup').addClass('show');
-})
+});
 
 $('.close-individual-kitchen-popup').on('click', () => {
   $('.individual-kitchen-popup').removeClass('show')
-})
+});
+
 $('#individualOrderBtn').on('click', (event) => {
   event.preventDefault();
   $('.individual-kitchen-popup').removeClass('show')
   $('.feedback-popup').addClass('show');
+});
+
+$('#callBack-form4 input[type="submit"]').click(function (event) {
+  event.preventDefault();
+  $('.feedback-popup').addClass('show');
+  $('.mfp-close').click();
 })
+
+// => BUTTONS 
+
+$('.btn-to-secondStep').click(function () {
+  $('.first-step').css('display', 'none');
+  $('.second-step').css('display', 'block');
+  $('.kitchen-slider1').css('display', 'none');
+  $('.kitchen-sections').css('display', 'block');
+  $('.step1').removeClass('active');
+  $('.step2').addClass('active');
+  $('.hideConfigImg').removeClass('show');
+  $('.checkConfigImage').removeClass('show');
+  $('.straight').addClass('active');
+  $('.straight input').prop('checked', true);
+  $('.kitchen-param.section-A').addClass('active');
+  $('.straight-block').addClass('check');
+  $('#sectionAS').prop('checked', true);
+  $('.btn-to-thirdStep').removeClass('active');
+  $(window).scrollTop(0);
+});
+$('.btn-back-toFirst-step ').click(function () {
+  $('.first-step').css('display', 'block');
+  $('.second-step').css('display', 'none');
+  $('.kitchen-slider1').css('display', 'block');
+  $('.kitchen-sections').css('display', 'none');
+  $('.step2').removeClass('active');
+  $('.step1').addClass('active');
+  $('.hideConfigImg').addClass('show');
+  $('.checkConfigImage').addClass('show');
+});
+$('.btn-to-thirdStep').click(function () {
+  $('.second-step').css('display', 'none');
+  $('.third-step').css('display', 'block');
+  $('.kitchen-sections').css('display', 'none');
+  $('.step2').removeClass('active');
+  $('.step3').addClass('active');
+  $('.checkConfigImage').addClass('show');
+  $('.kitchen-slider-desctop .kitchen-slider1').css('display', 'block');
+  $(window).scrollTop(0);
+});
+$('.btn-back-toSecond-step').click(function () {
+  $('.second-step').css('display', 'block');
+  $('.third-step').css('display', 'none');
+  $('.kitchen-sections').css('display', 'block');
+  $('.step2').removeClass('active');
+  $('.step3').addClass('active');
+  $('.checkConfigImage').removeClass('show');
+  $('.kitchen-slider-desctop .kitchen-slider1').css('display', 'none');
+});
+$('.btn-to-fourthStep').click(function () {
+  $('.third-step').css('display', 'none');
+  $('.fourth-step').css('display', 'block');
+  $('.step3').removeClass('active');
+  $('.step4').addClass('active');
+  $('#configuratorTotalCost').text($('#priceField').attr('data-common-price') + ' грн.')
+  $(window).scrollTop(0);
+});
+$('.btn-back-toThird-step').click(function () {
+  $('.third-step').css('display', 'block');
+  $('.fourth-step').css('display', 'none');
+  $('.step4').removeClass('active');
+  $('.step3').addClass('active');
+});
+// <= BUTTONS
+
+
+
+document.getElementsByClassName('accept-terms')[0].addEventListener('click', function () {
+  let btnToOrder = document.querySelector('.btn-to-order');
+  let inp = document.getElementById('accept-term');
+  if (!inp.checked) {
+    btnToOrder.disabled = false;
+    btnToOrder.classList.add('active');
+  } else {
+    btnToOrder.disabled = true;
+    btnToOrder.classList.remove('active');
+  }
+});
+
+$('.create-module-popup input[type="number"]').on('input', function () {
+  if ($(this).val() > 100) {
+    $(this).val(100)
+  }
+})
+
+$('.individual-kitchen-popup .custom-module-height').on('input', function () {
+  if ($(this).val() > 1000) {
+    $(this).val(1000)
+  }
+});
+$('.individual-kitchen-popup .custom-module-width').on('input', function () {
+  if ($(this).val() > 1000) {
+    $(this).val(1000)
+  }
+});
+$('.individual-kitchen-popup .custom-module-depth').on('input', function () {
+  if ($(this).val() > 100) {
+    $(this).val(100)
+  }
+});

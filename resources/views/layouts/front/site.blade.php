@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href=" {{ asset('css/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('css/libs.min.css') }}">
+    <link rel="stylesheet" href=" {{ asset('css/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -375,134 +375,117 @@
                     </div>
                     <div class="data">
                         <div class="data-tablet" id="checkKitchenModel">
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label id="barn" class="custom-radio" data-src="img/kitchen-config/kitchen1.png"
-                                               data-configuration='{
-											"kitchenFasad" : [{"name" : "фисташковый *", "src" : "img/kitchen-config/fistashka.png"},
-											{"name" : "антрацит *", "src" : "img/kitchen-config/f-moda_chornyi_metelik.png"},
-											{"name" : "капучино", "src" : "img/kitchen-config/f-moda_kapuchino.png"},
-											{"name" : "грей *", "src" : "img/kitchen-config/f-moda_siriy_metelik.png"},
-											{"name" : "гранат *", "src" : "img/kitchen-config/granat.png"},
-											{"name" : "индиго", "src" : "img/kitchen-config/indigo.png"},
-											{"name" : "лимон", "src" : "img/kitchen-config/jovtiy.png"},
-											{"name" : "лайт", "src" : "img/kitchen-config/moda-lait.png"},
-											{"name" : "мокко new", "src" : "img/kitchen-config/moda-mokko.png"}],
-											"bodyColor" : [{"name" : "антрацит", "src" : "img/kitchen-config/an.png"},
-											{"name" : "белый", "src" : "img/kitchen-config/b.png"},
-											{"name" : "орех", "src" : "img/kitchen-config/G.png"},
-											{"name" : "серый металлик", "src" : "img/kitchen-config/gr.png"},
-											{"name" : "дуб молочный", "src" : "img/kitchen-config/K.png"},
-											{"name" : "слоновая кость", "src" : "img/kitchen-config/sk.png"},
-											{"name" : "вишня", "src" : "img/kitchen-config/V.png"},
-											{"name" : "венге", "src" : "img/kitchen-config/Vn.png"},
-											{"name" : "яблоня", "src" : "img/kitchen-config/Y.png"}],
-											"depthTop" : 50.0,
-											"depthBottom" : 40.0,
-											"bottomModules" : [{"name" : "Угловая тумба", "src" : "img/kitchen-config/module1.png", "type" : "corner", "item" : [{"name": "Угловой Верхний шкаф с микроволновой печью11", "price" : 100, "src" : "img/kitchen-config/module9.png", "description" : "С одной дверцей вверху", "height" : 60, "width" : [60.0, 50.0, 40.0]}, {"name": "Угловой Верхний шкаф с микроволновой печью22", "price" : 100, "src" : "img/kitchen-config/module7.png", "description" : "С одной дверцей вверху", "height" : 50, "width" : [11.0, 50.0, 12.0]}, {"name": "Угловой Верхний шкаф с микроволновой печью33", "price" : 100, "src" : "img/kitchen-config/module7.png", "description" : "С одной дверцей вверху", "height" : 50, "width" : [11.0, 50.0, 12.0]}]},
-											{"name" : "Тумба", "src" : "img/kitchen-config/modules2.png", "item" : [{"name": "Верхний шкаф с микроволновой печью123", "price" : 100, "src" : "img/kitchen-config/module9.png", "description" : "С одной дверцей вверху", "height" : 60, "width" : [60.0, 50.0, 40.0]}, {"name": "Верхний шкаф с микроволновой печью1234", "price" : 100, "src" : "img/kitchen-config/module7.png", "description" : "С одной дверцей вверху", "height" : 50, "width" : [11.0, 50.0, 12.0]}]},
-											{"name" : "Высокий шкаф", "src" : "img/kitchen-config/modules3.png", "type" : "twoBlocks", "item" : [{"name": "Высокий шкаф с микроволновой печью", "price" : 100, "src" : "img/kitchen-config/module8.png", "description" : "С одной дверцей вверху", "height" : [60.0, 40.0, 20.0], "width" : [60.0, 50.0, 40.0]}]}],
-											"topModules" : [{"name" : "Угловой навесной шкаф", "src" : "img/kitchen-config/module1.png", "type" : "corner", "item" : [{"name": "Угловой Верхний шкаф с микроволновой печью11", "price" : 100, "src" : "img/kitchen-config/module9.png", "description" : "С одной дверцей вверху", "height" : [60.0, 40.0, 20.0], "width" : [60.0, 50.0, 40.0]}, {"name": "Угловой Верхний шкаф с микроволновой печью22", "price" : 100, "src" : "img/kitchen-config/module7.png", "description" : "С одной дверцей вверху", "height" : [50.0, 20.0, 40.0], "width" : [11.0, 50.0, 12.0]}, {"name": "Угловой Верхний шкаф с микроволновой печью33", "price" : 100, "src" : "img/kitchen-config/module7.png", "description" : "С одной дверцей вверху", "height" : [50.0, 20.0, 40.0], "width" : [11.0, 50.0, 12.0]}]},
-											{"name" : "Тумба", "src" : "img/kitchen-config/modules2.png", "item" : [{"name": "Верхний шкаф с микроволновой печью123", "price" : 100, "src" : "img/kitchen-config/module9.png", "description" : "С одной дверцей вверху", "height" : [60.0, 40.0, 20.0], "width" : [60.0, 50.0, 40.0]}, {"name": "Верхний шкаф с микроволновой печью1234", "price" : 100, "src" : "img/kitchen-config/module7.png", "description" : "С одной дверцей вверху", "height" : [50.0, 20.0, 40.0], "width" : [11.0, 50.0, 12.0]}]},
-											{"name" : "Высокий шкаф", "src" : "img/kitchen-config/modules3.png", "item" : [{"name": "Двойной Верхний шкаф с микроволновой печью123", "src" : "img/kitchen-config/module8.png", "description" : "С одной дверцей вверху", "height" : [60.0, 40.0, 20.0], "width" : [60.0, 50.0, 40.0]}]}],
-											"tableTopColor" : [{"name" : "керамика черная ", "src" : "img/kitchen-config/kitchenStep3-1.png"}, {"name" : "травентино", "src" : "img/kitchen-config/kitchenStep3-2.png"}, {"name" : "скай светлый", "src" : "img/kitchen-config/kitchenStep3-3.png"}, {"name" : "дуб Сонома", "src" : "img/kitchen-config/kitchenStep3-4.png"}],
-											"baseColor" : [{"name" : "керамика черная ", "src" : "img/kitchen-config/kitchenStep3-1.png"}, {"name" : "травентино", "src" : "img/kitchen-config/kitchenStep3-2.png"}, {"name" : "скай светлый", "src" : "img/kitchen-config/kitchenStep3-3.png"}, {"name" : "дуб Сонома", "src" : "img/kitchen-config/kitchenStep3-4.png"}, {"name" : "яблоня", "src" : "img/kitchen-config/kitchenStep3-5.png"}, {"name" : "молочый", "src" : "img/kitchen-config/kitchenStep3-6.png"}],
-											"eavesColor" : [{"name" : "керамика черная ", "src" : "img/kitchen-config/kitchenStep3-1.png"}, {"name" : "травентино", "src" : "img/kitchen-config/kitchenStep3-2.png"}, {"name" : "скай светлый", "src" : "img/kitchen-config/kitchenStep3-3.png"}, {"name" : "дуб Сонома", "src" : "img/kitchen-config/kitchenStep3-4.png"}]
-										}'><input name="group" type="radio">
-											<div></div><span>Кухня "FLAT"</span>
-                                        </label>
-									</span>
-                                <p class="config_label"></p>
-                                <span class="kitchen-price-value">3600 грн</span>
-                            </div>
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label class="custom-radio" data-src="img/kitchen-config/kitchen2.png"><input
-                                                    name="group" type="radio">
-											<div></div><span>Кухня "Amore Classic"</span>
-										</label>
-									</span>
-                            </div>
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label class="custom-radio" data-src="img/kitchen-config/kitchen3.png"><input
-                                                    name="group" type="radio">
-											<div></div><span>Кухня "Alta"</span>
-										</label>
-									</span>
+                            @foreach($kitchens as $i=>$kitchen)
+                                <div class="col-md-6 col-lg-12 tabModel">
+                                        <span class="checkbox_config">
+                                            <label id="barn" class="custom-radio" data-src="{{isset($kitchen->image_name) ? $kitchen->image_name : '' }}"
+                                                   data-configuration='{
+                                                "kitchenFasad" :
+                                                [
+                                                    @foreach($kitchen->kitchen_facade as $i=>$facade)
+                                                    {"name" : "{{$facade->title}}", "src" : "{{$facade->image_name}}"}@if(!$loop->last),@endif
+                                                    @endforeach
+                                                ],
 
-                                <span class="kitchen-price-value">6600 грн</span>
-                            </div>
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label class="custom-radio" data-src="img/kitchen-config/kitchen4.png"><input
-                                                    name="group" type="radio">
-											<div></div><span>Кухня "Грация"</span>
-										</label>
-									</span>
+                                                "bodyColor" :
+                                                [
+                                                    @foreach($kitchen->kitchen_body_color as $body)
+                                                           {"name" : "{{$body->title}}", "src" : "{{$body->image_name}}"}@if(!$loop->last),@endif
+                                                    @endforeach
+                                                ],
 
-                                <span class="kitchen-price-value">7600 грн</span>
-                            </div>
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label class="custom-radio" data-src="img/kitchen-config/kitchen1.png"><input
-                                                    name="group" type="radio">
-											<div></div><span>Кухня "maXima"</span>
-										</label>
-									</span>
+                                                "depthTop" : {{$kitchen->kitchenParams->depth_top}},
+                                                "depthBottom" : {{$kitchen->kitchenParams->depth_bottom}},
 
-                                <span class="kitchen-price-value">5600 грн</span>
-                            </div>
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label class="custom-radio" data-src="img/kitchen-config/kitchen2.png"><input
-                                                    name="group" type="radio">
-											<div></div><span>Кухня "MoDa"</span>
-										</label>
-									</span>
+                                                "bottomModules" :
+                                                [
+                                                    @foreach($kitchen->bottom_modules as $bottom_module)
+                                                    {
+                                                        "name"  : "{{$bottom_module->title}}",
+                                                        "src"   : "{{$bottom_module->image_name}}",
+                                                        "type"  : "{{($bottom_module->favicon == 1) ? 'corner' : ''}}",
+                                                        "item"  :
+                                                        [
+                                                            @foreach($bottom_module->modules as $module)
+                                                            {
+                                                                "name"        : "{{$module->title}}",
+                                                                "price"       :  {{$module->price}},
+                                                                "src"         : "{{$module->image_name}}",
+                                                                "description" : "{{$module->comment}}",
+                                                                "height"      :  {{!empty($module->height) ? $module->height->longitude : 0}},
+                                                                "width"       :
+                                                                [
+                                                                    @foreach($module->widths as $width)
+                                                                        {{$width->longitude}}@if(!$loop->last),@endif
+                                                                    @endforeach
+                                                                ]
+                                                            }@if(!$loop->last),@endif
+                                                            @endforeach
+                                                        ]
+                                                    }@if(!$loop->last),@endif
+                                                    @endforeach
+                                                ],
 
-                                <span class="kitchen-price-value">5600 грн</span>
-                            </div>
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label class="custom-radio" data-src="img/kitchen-config/kitchen3.png"><input
-                                                    name="group" type="radio">
-											<div></div><span>Кухня "Колор-микс"</span>
-										</label>
-									</span>
+                                                "topModules" :
+                                                [
+                                                    @foreach($kitchen->top_modules as $top_module)
+                                                        {
+                                                            "name" : "{{$top_module->title}}",
+                                                            "src" : "{{$top_module->image_name}}",
+                                                            "type" : "{{($top_module->favicon == 1) ? 'corner' : ''}}",
+                                                            "item" :
+                                                            [
+                                                            @foreach($top_module->modules as $module)
+                                                                {
+                                                                    "name": "{{$module->title}}",
+                                                                    "price" : {{$module->price}},
+                                                                    "src" : "{{$module->image_name}}",
+                                                                    "description" : "{{$module->comment}}",
+                                                                    "height" :[
+                                                                              @foreach($module->heights as $height)
+                                                                                {{$height->longitude}}@if(!$loop->last),@endif
+                                                                              @endforeach
+                                                                              ],
+                                                                    "width" : [
+                                                                               @foreach($module->widths as $width)
+                                                                                {{$width->longitude}}@if(!$loop->last),@endif
+                                                                               @endforeach
+                                                                              ]
+                                                                }@if(!$loop->last),@endif
+                                                            @endforeach
+                                                            ]
+                                                        }@if(!$loop->last),@endif
+                                                    @endforeach
+                                                ],
 
-                                <span class="kitchen-price-value">5600 грн</span>
-                            </div>
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label class="custom-radio" data-src="img/kitchen-config/kitchen4.png"><input
-                                                    name="group" type="radio">
-											<div></div><span>Кухня "Альбина"</span>
-										</label>
-									</span>
+                                                "additionalEquipment" :
+                                                 [
+                                                 @foreach($kitchen->additionTypes as $type)
+                                                    {
+                                                        "blockName" : "{{$type->title}}",
+                                                        "text" : "{{$type->comment}}",
+                                                        "items" :
+                                                        [
+                                                            @foreach($type->additions as $addition)
+                                                            {
+                                                                "name" : "{{$addition->title}}",
+                                                                "src" : "{{$addition->image_name}}"
+                                                            }@if(!$loop->last),@endif
+                                                            @endforeach
+                                                        ]
+                                                    }@if(!$loop->last),@endif
+                                                 @endforeach
+											     ]
 
-                                <span class="kitchen-price-value">5600 грн</span>
-                            </div>
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label class="custom-radio" data-src="img/kitchen-config/kitchen1.png"><input
-                                                    name="group" type="radio">
-											<div></div><span>Кухня "Mirror Gloss"</span>
-										</label>
-									</span>
-
-                                <span class="kitchen-price-value">5600 грн</span>
-                            </div>
-                            <div class="col-md-6 col-lg-12 tabModel">
-									<span class="checkbox_config">
-										<label class="custom-radio" data-src="img/kitchen-config/kitchen1.png"><input
-                                                    name="group" type="radio">
-											<div></div><span>Кухня "Margo"</span>
-										</label>
-									</span>
-
-                                <span class="kitchen-price-value">5600 грн</span>
-                            </div>
+                                            }'><input name="group" type="radio">
+                                                <div></div>
+                                                <span>{{$kitchen->title}}</span>
+                                            </label>
+                                        </span>
+                                    <p class="config_label"></p>
+                                    <span class="kitchen-price-value">3600 грн</span>
+                                </div>
+                            @endforeach
                         </div>
 
                         <div class="d-block d-lg-none kitchen-slider kitchen-slider-mobile">
@@ -510,43 +493,14 @@
                             <div class="container">
                                 <h3>Визуализация</h3>
                                 <div class="kitchen-slider1">
+                                    @foreach($kitchens as $kitchen)
                                     <div class="col-md-6 ">
-                                        <img class="kitchen-slider1-img" src="img/kitchen-config/kitchen1.png"
-                                             alt="">
-                                        <span class="checkbox_config checkbox_size ch">
-											</span>
-                                        <p>Кухня "FLAT" </p>
-                                    </div>
-                                    <div class="col-md-6 ">
-                                        <img class="kitchen-slider1-img" src="img/kitchen-config/kitchen2.png"
+                                        <img class="kitchen-slider1-img" src="{{$kitchen->image_name}}"
                                              alt="">
                                         <span class="checkbox_config checkbox_size ch"></span>
-                                        <p>Кухня "Amore Classic"</p>
+                                        <p>{{$kitchen->title}} </p>
                                     </div>
-                                    <div class="col-md-6 ">
-                                        <img class="kitchen-slider1-img" src="img/kitchen-config/kitchen3.png"
-                                             alt="">
-                                        <span class="checkbox_config checkbox_size ch"></span>
-                                        <p>Кухня "Alta"</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img class="kitchen-slider1-img" src="img/kitchen-config/kitchen4.png"
-                                             alt="">
-                                        <span class="checkbox_config checkbox_size ch"></span>
-                                        <p>Кухня "Грация"</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img class="kitchen-slider1-img" src="img/kitchen-config/kitchen1.png"
-                                             alt="">
-                                        <span class="checkbox_config checkbox_size ch"></span>
-                                        <p>Кухня "Грация"</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img class="kitchen-slider1-img" src="img/kitchen-config/kitchen2.png"
-                                             alt="">
-                                        <span class="checkbox_config checkbox_size ch"></span>
-                                        <p>Кухня "Грация"</p>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -557,8 +511,7 @@
                         <div class="accordion-item-rightline"></div>
                     </div>
                     <div class="data">
-                        <p class="additional-info">*Эффект металлик глянец. Для более точного представления
-                            ознакомьтесь с образцами изделий.</p>
+                        <p class="additional-info">*Эффект металлик глянец. Для более точного представления ознакомьтесь с образцами изделий.</p>
                         <div class="color2 kitchen-fasad-wrap">
                         </div>
                     </div>
@@ -568,10 +521,8 @@
                         <div class="accordion-item-rightline"></div>
                     </div>
                     <div class="data kitchen-corps-color">
-                        <p class="additional-info">*Эффект металлик глянец. Для более точного представления
-                            ознакомьтесь с образцами изделий.</p>
-                        <div class="color2 kitchen-corps-color-wrap">
-                        </div>
+                        <p class="additional-info">*Эффект металлик глянец. Для более точного представления ознакомьтесь с образцами изделий.</p>
+                        <div class="color2 kitchen-corps-color-wrap"></div>
                     </div>
                 </div>
                 <button class="btn-to-secondStep">Далее</button>

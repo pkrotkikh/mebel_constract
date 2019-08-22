@@ -39,6 +39,10 @@ class Addition extends Model implements HasMedia
         });
     }
 
+    public function getImageNameAttribute(){
+        return ($this->image) ? '/img/addition/'.$this->image : '';
+    }
+
     public function getImageFullnameAttribute(){
         return url('/img/addition/'.$this->image);
     }
